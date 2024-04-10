@@ -119,7 +119,7 @@ var submitButton = document.getElementById("submit");
 
 audio.addEventListener("ended", function () {
   audio.currentTime = 0; // إعادة تعيين موقع الصوت إلى البداية
-  audio.play(); // تشغيل الصوت مرة أخرى
+   // تشغيل الصوت مرة أخرى
 });
 
 submitButton.addEventListener("click", function () {
