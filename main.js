@@ -99,36 +99,45 @@ function showNotification() {
   }
 }
 
-// var audio = document.getElementById("audioPlayer");
-// var playButton = document.getElementById("playButton");
-
-// submit.addEventListener("click", function() {
-//   let name = document.getElementById("name").value;
-//   if(name != ''){
-//   if (audio.paused) {
-//     audio.play();
-
-//   } else {
-//     audio.pause();
-
-//   }
-// }
-// });
 var audio = document.getElementById("audioPlayer");
 var submitButton = document.getElementById("submit");
 
-audio.addEventListener("ended", function () {
-  audio.currentTime = 0; // إعادة تعيين موقع الصوت إلى البداية
-   // تشغيل الصوت مرة أخرى
+audio.addEventListener("ended", function() {
+  audio.pause(); // إيقاف تشغيل الصوت عند انتهائه
+});
+
+submitButton.addEventListener("click", function() {
+  let name = document.getElementById("name").value;
+  
+  if (name !== "") {
+    audio.currentTime = 0; // إعادة تعيين مؤشر الصوت إلى البداية
+    audio.play(); // تشغيل الصوت
+    
+    if (name === 'مريم') {
+      audio.pause(); // إيقاف تشغيل الصوت إذا كان الاسم يساوي "مريم"
+    }
+  }
+});
+
+
+
+
+
+
+
+
+var audioone = document.getElementById("audioPlayerone");
+var submitButton = document.getElementById("submit");
+
+audioone.addEventListener("ended", function () {
+  audio.pause(); // إيقاف تشغيل الصوت عند انتهائه
 });
 
 submitButton.addEventListener("click", function () {
   let name = document.getElementById("name").value;
-  if (name != "") {
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
+  if (name === "مريم") {
+    if (audioone.paused) {
+      audioone.play();
     }
   }
 });
